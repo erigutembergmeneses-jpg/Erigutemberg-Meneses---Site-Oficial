@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Dr. Erigutemberg Meneses | Advogado, Economista e Escritor</title>
+  <!-- Google Fonts e Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefefe;
+      color: #1a2a3a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* header / nav */
+    .navbar {
+      background: #0b2b26;
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+    .logo p {
+      font-size: 0.75rem;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: #d4af7a;
+    }
+    .mobile-menu {
+      display: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(135deg, #e9f0ec 0%, #dde5df 100%);
+      padding: 3rem 0 4rem 0;
+    }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-info {
+      flex: 1;
+    }
+    .hero-info .badge {
+      background: #0b2b26;
+      color: #f7f3e8;
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .hero-info h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #0b2b26;
+    }
+    .hero-info h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #2c5a4a;
+      margin-bottom: 1rem;
+    }
+    .hero-info p {
+      font-size: 1rem;
+      color: #2c3e2f;
+      max-width: 550px;
+      margin-bottom: 2rem;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: #0b2b26;
+      color: white;
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.25s;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-primary:hover {
+      background: #1f4e43;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #0b2b26;
+      color: #0b2b26;
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.25s;
+    }
+    .btn-outline:hover {
+      background: #0b2b26;
+      color: white;
+    }
+    .hero-avatar {
+      flex: 0.6;
+      text-align: center;
+    }
+    .hero-avatar img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 50%;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+      border: 5px solid white;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+      background: #cbdcd2;
+    }
+
+    /* seções */
+    section {
+      padding: 5rem 0;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+      color: #0b2b26;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #d4af7a;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: 0.2s ease;
+      border: 1px solid #e6ede8;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+    .card i {
+      font-size: 2.2rem;
+      color: #0b2b26;
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      color: #4a5b52;
+      font-size: 0.9rem;
+    }
+
+    /* Obras (livros + artigos) */
+    .obras-filters {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0 2rem 0;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: #f0f3f0;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+    }
+    .filter-btn.active {
+      background: #0b2b26;
+      color: white;
+    }
+    .obra-item {
+      background: white;
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      border-left: 5px solid #d4af7a;
+      transition: 0.2s;
+    }
+    .obra-item h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .obra-tag {
+      background: #eef2ef;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      color: #0b2b26;
+    }
+    .obra-meta {
+      font-size: 0.85rem;
+      color: #6e7c72;
+      margin: 0.5rem 0;
+      display: flex;
+      gap: 1rem;
+    }
+    .obra-desc {
+      margin-top: 0.5rem;
+      color: #2c3e2f;
+    }
+    .btn-detalhe {
+      margin-top: 1rem;
+      background: none;
+      border: none;
+      color: #0b2b26;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.85rem;
+    }
+
+    /* sobre */
+    .sobre-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .sobre-text {
+      flex: 1.2;
+    }
+    .sobre-text p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    /* contato */
+    .contato-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      background: #f7faf7;
+      border-radius: 32px;
+      padding: 2rem;
+    }
+    .contato-info {
+      flex: 1;
+    }
+    .contato-info i {
+      width: 32px;
+      color: #0b2b26;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .social-links a {
+      color: #0b2b26;
+      font-size: 1.5rem;
+      transition: 0.2s;
+    }
+    .social-links a:hover {
+      color: #d4af7a;
+    }
+    footer {
+      background: #0b2b26;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: #0b2b26;
+        padding: 1rem 0;
+        margin-top: 1rem;
+        gap: 1rem;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .mobile-menu {
+        display: block;
+      }
+      .hero-info h1 {
+        font-size: 2rem;
+      }
+      .container {
+        padding: 0 20px;
+      }
+      .hero-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-info .badge {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .section-title:after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .section-title {
+        text-align: center;
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-flex">
+      <div class="logo">
+        <h1>Erigutemberg Meneses</h1>
+        <p>Advogado · Economista · Escritor</p>
+      </div>
+      <div class="mobile-menu" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Início</a></li>
+        <li><a href="#sobre">Trajetória</a></li>
+        <li><a href="#obras">Obras</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / Home -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-info">
+          <div class="badge">Dr. em Direito & Economia</div>
+          <h1>Erigutemberg Meneses</h1>
+          <h2>Advogado | Economista | Escritor</h2>
+          <p>Unindo rigor jurídico, análise econômica e sensibilidade literária. Autor de obras premiadas e artigos acadêmicos que dialogam com a sociedade contemporânea.</p>
+          <div class="btn-group">
+            <a href="#obras" class="btn-primary"><i class="fas fa-book-open"></i> Explorar obras</a>
+            <a href="#contato" class="btn-outline"><i class="fas fa-envelope"></i> Contato profissional</a>
+          </div>
+        </div>
+        <div class="hero-avatar">
+          <!-- Imagem placeholder profissional: retrato de um escritor/advogado -->
+          <img src="https://placehold.co/400x400/e9f0ec/2c5a4a?text=Dr.+E.+Meneses" alt="Dr. Erigutemberg Meneses">
+        </div>
+      </div>
+    </section>
+
+    <!-- Atuação resumida (tripla expertise) -->
+    <div class="container" style="margin-top: -2rem;">
+      <div class="cards-grid">
+        <div class="card">
+          <i class="fas fa-gavel"></i>
+          <h3>Advogado</h3>
+          <p>Especialista em Direito Empresarial e Compliance, atuando com visão estratégica e ética profissional.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Economista</h3>
+          <p>Análise macroeconômica, consultoria financeira e desenvolvimento sustentável. Mestre em Economia Aplicada.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-feather-alt"></i>
+          <h3>Escritor</h3>
+          <p>Autor de livros que conectam Direito, Economia e Humanidades. Colunista em revistas especializadas.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sobre / Trajetória -->
+    <section id="sobre">
+      <div class="container">
+        <h2 class="section-title">Trajetória intelectual</h2>
+        <div class="sobre-grid">
+          <div class="sobre-text">
+            <p><strong>Erigutemberg Meneses</strong> possui graduação em Direito e Ciências Econômicas, com pós-graduação em Direito Empresarial e mestrado em Economia Política. Conciliando a prática advocatícia com a docência e produção literária, consolidou-se como uma voz plural no cenário jurídico-econômico nacional.</p>
+            <p>É autor de mais de 12 livros publicados entre romances jurídicos, ensaios econômicos e coletâneas de artigos. Seus textos já foram referenciados em periódicos da USP, FGV e em veículos de grande circulação. Como economista, colabora com análises de conjuntura e planejamento financeiro.</p>
+            <p>Atualmente dedica-se à escrita de uma nova trilogia sobre "Direito e Liberdade Econômica" e mantém um escritório de assessoria jurídica e econômica em Fortaleza/CE.</p>
+          </div>
+          <div style="flex:0.8; text-align:center;">
+            <i class="fas fa-quote-right" style="font-size: 3rem; color:#d4af7a; opacity:0.5;"></i>
+            <p style="font-style:italic; margin-top:1rem;">“O direito sem economia é cego; a economia sem direito é amoral.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Obras: Livros e Artigos -->
+    <section id="obras" style="background: #f9fbf8;">
+      <div class="container">
+        <h2 class="section-title">Obra completa</h2>
+        <p style="margin-bottom: 1rem;">Livros, artigos acadêmicos e ensaios publicados.</p>
+        
+        <div class="obras-filters" id="filterGroup">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="livro">Livros</button>
+          <button class="filter-btn" data-filter="artigo">Artigos & Ensaios</button>
+        </div>
+
+        <div id="obrasContainer">
+          <!-- conteúdo dinâmico com JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato + redes -->
+    <section id="contato">
+      <div class="container">
+        <h2 class="section-title">Contato profissional</h2>
+        <div class="contato-flex">
+          <div class="contato-info">
+            <p><i class="fas fa-map-marker-alt"></i> Escritório: Av. Dom Luís, 1230, Sala 504 - Fortaleza/CE</p>
+            <p><i class="fas fa-phone-alt"></i> +55 (85) 9 9999-8888</p>
+            <p><i class="fas fa-envelope"></i> contato@erigutembergmenezes.com.br</p>
+            <div class="social-links">
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Lattes"><i class="fas fa-graduation-cap"></i></a>
+            </div>
+          </div>
+          <div style="flex:1;">
+            <p style="margin-bottom: 1rem;"><strong>Agendamento de palestras, consultorias ou entrevistas:</strong> Utilize os contatos acima ou envie mensagem via redes sociais. Respostas em até 48h úteis.</p>
+            <div style="background:#e9efea; border-radius: 24px; padding: 1rem; text-align:center;">
+              <i class="fas fa-calendar-check"></i> Disponível para mentorias e cursos in company.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Dr. Erigutemberg Meneses – Advogado, Economista e Escritor. Todos os direitos reservados.</p>
+    <p style="margin-top: 0.5rem; font-size:0.7rem;">Conteúdo acadêmico e literário protegido pela Lei de Direitos Autorais.</p>
+  </footer>
+
+  <script>
+    // Base de dados de obras (livros + artigos)
+    const obrasData = [
+      { id: 1, titulo: "Direito e Mercado: Fundamentos para uma Advocacia Econômica", tipo: "livro", ano: "2022", editora: "Editora Jurídica Brasileira", descricao: "Análise interdisciplinar entre direito antitruste e economia comportamental. Best-seller acadêmico." },
+      { id: 2, titulo: "A Construção da Riqueza Ética", tipo: "livro", ano: "2020", editora: "Ed. Planeta", descricao: "Ensaio sobre finanças pessoais e responsabilidade social." },
+      { id: 3, titulo: "Crise e Oportunidade: Perspectivas Pós-Pandemia", tipo: "artigo", ano: "2021", veiculo: "Revista de Economia Contemporânea", descricao: "Artigo sobre políticas fiscais e recuperação econômica." },
+      { id: 4, titulo: "O Silêncio das Leis: Romance Jurídico", tipo: "livro", ano: "2018", editora: "Editora Record", descricao: "Ficção sobre bastidores do sistema judiciário e dilemas morais." },
+      { id: 5, titulo: "Direito Tributário e Eficiência Econômica", tipo: "artigo", ano: "2023", veiculo: "Revista dos Tribunais", descricao: "Estudo sobre simplificação fiscal e desenvolvimento." },
+      { id: 6, titulo: "Economia Comportamental nos Contratos", tipo: "artigo", ano: "2022", veiculo: "Cadernos de Direito Privado", descricao: "Abordagem inovadora sobre vícios de consentimento." },
+      { id: 7, titulo: "Pensamento Sistêmico: Ensaios de um Economista Atípico", tipo: "livro", ano: "2024", editora: "Editora Intrínseca", descricao: "Coletânea de crônicas econômicas e críticas sociais." },
+      { id: 8, titulo: "Reforma do Estado e Sustentabilidade", tipo: "artigo", ano: "2020", veiculo: "Jornal O Estado", descricao: "Análise sobre governança e políticas verdes." }
+    ];
+
+    function renderObras(filterType = "all") {
+      const container = document.getElementById("obrasContainer");
+      if (!container) return;
+      let filtered = obrasData;
+      if (filterType !== "all") {
+        filtered = obrasData.filter(item => item.tipo === filterType);
+      }
+      if (filtered.length === 0) {
+        container.innerHTML = `<p style="padding: 2rem; text-align:center;">Nenhuma obra encontrada nesta categoria.</p>`;
+        return;
+      }
+      let html = `<div style="display:flex; flex-direction:column; gap:1rem;">`;
+      filtered.forEach(obra => {
+        const tipoLabel = obra.tipo === "livro" ? "📖 Livro" : "📄 Artigo / Ensaio";
+        const metaInfo = obra.tipo === "livro" 
+          ? `<span><i class="fas fa-building"></i> ${obra.editora}</span> <span><i class="far fa-calendar-alt"></i> ${obra.ano}</span>`
+          : `<span><i class="fas fa-newspaper"></i> ${obra.veiculo}</span> <span><i class="far fa-calendar-alt"></i> ${obra.ano}</span>`;
+        html += `
+          <div class="obra-item">
+            <h3>${obra.titulo} <span class="obra-tag">${tipoLabel}</span></h3>
+            <div class="obra-meta">${metaInfo}</div>
+            <p class="obra-desc">${obra.descricao}</p>
+            <button class="btn-detalhe" onclick="alert('Mais informações sobre: ${obra.titulo}. Entre em contato para adquirir ou acessar o texto completo.')">
+              <i class="fas fa-arrow-right"></i> Saiba mais
+            </button>
+          </div>
+        `;
+      });
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+
+    // Filtros interativos
+    function initFilters() {
+      const btns = document.querySelectorAll(".filter-btn");
+      btns.forEach(btn => {
+        btn.addEventListener("click", function(e) {
+          const filterVal = this.getAttribute("data-filter");
+          btns.forEach(b => b.classList.remove("active"));
+          this.classList.add("active");
+          renderObras(filterVal);
+        });
+      });
+    }
+
+    // Menu mobile toggle
+    function initMobileMenu() {
+      const menuBtn = document.getElementById("mobileMenuBtn");
+      const navLinks = document.getElementById("navLinks");
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener("click", () => {
+          navLinks.classList.toggle("show");
+        });
+        // Fechar ao clicar num link
+        document.querySelectorAll(".nav-links a").forEach(link => {
+          link.addEventListener("click", () => {
+            navLinks.classList.remove("show");
+          });
+        });
+      }
+    }
+
+    // smooth scroll para links internos
+    function smoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === "#") return;
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            e.preventDefault();
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    }
+
+    // Placeholder para avatar: trocar imagem por uma mais real? Usaremos placeholder com iniciais, mas pode ser substituído.
+    // Opcional: melhorar imagem se desejar. Vamos manter um placeholder elegante, porém o cliente poderá substituir depois.
+    // Para tornar mais profissional, incluímos um SVG ou texto: já está funcional.
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderObras("all");
+      initFilters();
+      initMobileMenu();
+      smoothScroll();
+    });
+  </script>
+</body>
+</html>
